@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta lang="zh-tw">
+<html>
+<style>
+.iframe-fb-container {
+    text-align: center;
+    width: 500px;
+    height:700px;
+    display:inline-block;
+}
+
+.iframe-fb {
+    width: 500px;
+    height: 700px;
+    overflow: hidden;
+}
+</style>
+<body>
+    <div id="emb" class="iframe-fb-container">
+        <!-- <iframe class="iframe-fb border" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FGringo.co.il%2F&tabs=timeline&width=400&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2235597906716847"></iframe> -->
+      </div>
+</body>
+
+<script>
+    var index = window.location.href.indexOf("vlink=");
+    if (index == -1) {
+        document.body.append("ERROR");
+    } else {
+        var link = window.location.href.substring(index, window.location.href.length - 1);
+        link = link.replace("vlink=", "");
+        var frame = document.createElement('iframe');
+        frame.className = "iframe-fb border";
+        frame.src = 'https://www.facebook.com/plugins/video.php?&href='+link+'&show_text=false&adapt_container_width=true';
+        document.getElementById('emb').appendChild(frame);
+    }
+</script>
+
+</html>
